@@ -1,23 +1,7 @@
 <template>
-  <div id="app">
-    <router-view />
-  </div>
+  <router-view />
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { supabase } from './composables/useSupabase'
-
-onMounted(() => {
-  supabase.auth.onAuthStateChange((event, session) => {
-    console.log('Auth state changed:', event, session)
-  })
-})
+// Logic has been moved to router guard and auth store
 </script>
-
-<style>
-#app {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2c3e50;
-}
-</style>

@@ -1,99 +1,112 @@
 <template>
-  <div class="outstanding-list-container">
+  <div class="list-container">
     <h2 class="section-title">รายการยาที่ยังไม่คืน</h2>
-    <div v-if="loading" class="loading">กำลังโหลด...</div>
-    <table v-else class="data-table">
-      <thead>
-        <tr>
-          <th>ชื่อยา</th>
-          <th>โรงพยาบาล</th>
-          <th>จำนวนยืม</th>
-          <th>จำนวนคืนแล้ว</th>
-          <th>ยังค้าง</th>
-          <th>วันที่ยืม</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="t in outstandingLoans" :key="t.id">
-          <td>{{ t.drug_name }}</td>
-          <td>{{ t.hospital?.name }}</td>
-          <td>{{ t.quantity }}</td>
-          <td>{{ getReturnedQuantity(t.id) }}</td>
-          <td class="status-remaining">{{ t.quantity - getReturnedQuantity(t.id) }}</td>
-          <td>{{ t.transaction_date }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <div
+      v-if="transactionStore.loading && transactionStore.outstandingLoans.length === 0"
+      class="loading"
+    >
+      กำลังโหลด...
+    </div>
+    <div v-else-if="transactionStore.outstandingLoans.length === 0" class="empty-state">
+      ไม่มีรายการค้างชำระ 🎉
+    </div>
+    <div v-else class="card-list">
+      <div
+        v-for="loan in transactionStore.outstandingLoans"
+        :key="loan.id"
+        class="list-card item-card"
+      >
+        <div class="card-header">
+          <h3 class="drug-name">{{ loan.drug_name }}</h3>
+          <span class="hospital-name">{{ loan.hospital?.name }}</span>
+        </div>
+        <div class="card-body">
+          <div class="info-row">
+            <span>วันที่ยืม:</span>
+            <span>{{ new Date(loan.transaction_date).toLocaleDateString('th-TH') }}</span>
+          </div>
+          <div class="info-row">
+            <span>จำนวนยืม:</span>
+            <span>{{ loan.quantity }}</span>
+          </div>
+          <div class="info-row">
+            <span>คืนแล้ว:</span>
+            <span>{{ transactionStore.getReturnedQuantity(loan.id) }}</span>
+          </div>
+        </div>
+        <div class="card-footer">
+          <span>ยังค้าง:</span>
+          <span class="remaining-qty">{{
+            loan.quantity - transactionStore.getReturnedQuantity(loan.id)
+          }}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { useTransactions } from '../composables/useTransactions'
+import { useTransactionStore } from '@/stores/transactionStore'
 
-const { transactions: outstandingLoans, fetchOutstandingLoans, loading } = useTransactions()
+const transactionStore = useTransactionStore()
 
 onMounted(() => {
-  fetchOutstandingLoans()
+  transactionStore.fetchAllTransactions()
 })
-
-const getReturnedQuantity = (loanId: string): number => {
-  const returns =
-    outstandingLoans.value?.filter(
-      (t) => t.linked_loan_id === loanId && t.transaction_type === 'RETURN',
-    ) || []
-  return returns.reduce((sum, r) => sum + r.quantity, 0)
-}
 </script>
 
 <style scoped>
-.outstanding-list-container {
-  padding: 2rem;
-  background-color: #f8f9fa;
-  min-height: 100vh;
-}
-
 .section-title {
-  font-size: 1.75rem;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
   text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
 }
-
-.loading {
+.loading,
+.empty-state {
   text-align: center;
+  color: var(--text-secondary);
+  padding: 2rem;
+}
+.card-list {
+  display: grid;
+  gap: 1rem;
+}
+.item-card {
+  padding: 1rem;
+}
+.card-header {
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.drug-name {
   font-size: 1.2rem;
-  color: #7f8c8d;
+  font-weight: 600;
+  color: var(--text-primary);
 }
-
-.data-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.hospital-name {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
 }
-
-.data-table th,
-.data-table td {
-  padding: 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid #eee;
+.card-body .info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
 }
-
-.data-table th {
-  background-color: #ecf0f1;
+.card-footer {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: bold;
-  color: #2c3e50;
 }
-
-.data-table tr:hover {
-  background-color: #f5f7fa;
-}
-
-.status-remaining {
-  color: #e74c3c;
-  font-weight: bold;
+.remaining-qty {
+  font-size: 1.25rem;
+  color: var(--danger);
 }
 </style>
