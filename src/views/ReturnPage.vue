@@ -2,11 +2,10 @@
   <div class="page-container">
     <header class="page-header">
       <div>
-        <!-- REFACTORED: Added gradient text for consistency -->
         <h2 class="text-gradient">บันทึกข้อมูลคืนยา</h2>
         <p>เลือกรายการยาที่ยืมมา เพื่อบันทึกการคืน</p>
       </div>
-      <!-- REFACTORED: The back button is now styled to match the theme -->
+
       <router-link to="/" class="back-btn">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +33,6 @@ import ReturnForm from '../components/ReturnForm.vue'
 </script>
 
 <style scoped>
-/* ADDED: Container animation for a smooth entrance */
 .page-container {
   animation: fadeIn 0.6s ease-out;
 }
@@ -48,7 +46,6 @@ import ReturnForm from '../components/ReturnForm.vue'
   }
 }
 
-/* REFACTORED: Header style is now consistent with other pages */
 .page-header {
   display: flex;
   justify-content: space-between;
@@ -69,7 +66,6 @@ import ReturnForm from '../components/ReturnForm.vue'
   font-size: 1rem;
 }
 
-/* REFACTORED: Complete redesign of the back button to fit the theme */
 .back-btn {
   display: flex;
   align-items: center;
@@ -97,7 +93,6 @@ import ReturnForm from '../components/ReturnForm.vue'
   box-shadow: var(--shadow-glow);
 }
 
-/* Responsive: Hide button text on small screens */
 @media (max-width: 768px) {
   .page-header {
     flex-direction: column;

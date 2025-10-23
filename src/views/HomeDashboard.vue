@@ -135,10 +135,6 @@ const totalOutstandingQuantity = computed(() => {
 </script>
 
 <style scoped>
-/*
-  NOTE: This scoped style now uses variables from the global stylesheet.
-  This makes it consistent and easier to maintain.
-*/
 .dashboard-container {
   animation: fadeIn 0.8s ease-out;
 }
@@ -154,7 +150,7 @@ const totalOutstandingQuantity = computed(() => {
 
 /* Header Section */
 .dashboard-header {
-  margin-bottom: var(--space-xl); /* REFACTORED */
+  margin-bottom: var(--space-xl);
   animation: slideDown 0.6s ease-out;
 }
 
@@ -173,14 +169,14 @@ const totalOutstandingQuantity = computed(() => {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: var(--space-lg); /* REFACTORED */
+  gap: var(--space-lg);
 }
 
 .main-title {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs); /* REFACTORED */
-  margin-bottom: var(--space-sm); /* REFACTORED */
+  gap: var(--space-xs);
+  margin-bottom: var(--space-sm);
 }
 
 .title-line-text {
@@ -191,7 +187,6 @@ const totalOutstandingQuantity = computed(() => {
   text-transform: uppercase;
 }
 
-/* ADDED: Reusable animated gradient text class */
 .text-gradient-animated {
   font-size: 3rem;
   font-weight: 800;
@@ -229,17 +224,17 @@ const totalOutstandingQuantity = computed(() => {
   background: var(--neon-green);
   border-radius: 50%;
   box-shadow: 0 0 10px var(--neon-green);
-  animation: pulse 2s ease-in-out infinite; /* Already defined globally */
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .ai-badge {
   display: flex;
   align-items: center;
-  gap: var(--space-sm); /* REFACTORED */
-  padding: var(--space-sm) var(--space-md); /* REFACTORED */
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
   background: rgba(102, 126, 234, 0.1);
   border: 1px solid rgba(102, 126, 234, 0.3);
-  border-radius: var(--border-radius-lg); /* REFACTORED */
+  border-radius: var(--border-radius-lg);
   backdrop-filter: blur(10px);
 }
 
@@ -249,8 +244,8 @@ const totalOutstandingQuantity = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--gradient-primary); /* REFACTORED */
-  border-radius: var(--border-radius-md); /* REFACTORED */
+  background: var(--gradient-primary);
+  border-radius: var(--border-radius-md);
   color: white;
   animation: float 3s ease-in-out infinite;
 }
@@ -289,28 +284,26 @@ const totalOutstandingQuantity = computed(() => {
   font-weight: 700;
 }
 
-/* Metrics Grid - REFACTORED to align with .list-card style */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--space-md); /* REFACTORED */
-  margin-bottom: var(--space-xl); /* REFACTORED */
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
 }
 
 .metric-card {
-  /* Inherits from .list-card from the master stylesheet conceptually */
   background: var(--glass-bg);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius-lg); /* REFACTORED */
-  padding: var(--space-lg); /* REFACTORED */
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
   box-shadow: var(--glass-shadow);
-  transition: all var(--transition-base); /* REFACTORED */
+  transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  gap: var(--space-md); /* REFACTORED */
+  gap: var(--space-md);
   animation: slideUp 0.6s ease-out backwards;
 }
 
@@ -334,29 +327,28 @@ const totalOutstandingQuantity = computed(() => {
 
 .metric-card:hover {
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: var(--glass-shadow), var(--shadow-glow); /* REFACTORED */
+  box-shadow: var(--glass-shadow), var(--shadow-glow);
   transform: translateY(-8px) scale(1.02);
 }
 
 .metric-icon {
   width: 64px;
   height: 64px;
-  flex-shrink: 0; /* Prevent icon from shrinking */
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--border-radius-md); /* REFACTORED */
+  border-radius: var(--border-radius-md);
 }
 
-/* Using gradient variables */
 .metric-card.outstanding .metric-icon {
   background: var(--gradient-danger);
-  color: white; /* Make icon color contrast with gradient */
+  color: white;
 }
 
 .metric-card.quantity .metric-icon {
   background: var(--gradient-success);
-  color: white; /* Make icon color contrast with gradient */
+  color: white;
 }
 
 .metric-icon svg {
@@ -375,16 +367,16 @@ const totalOutstandingQuantity = computed(() => {
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: var(--space-xs); /* REFACTORED */
+  margin-bottom: var(--space-xs);
 }
 
 .metric-value {
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: var(--space-xs); /* REFACTORED */
+  margin-bottom: var(--space-xs);
 }
-/* ADDED: Utility classes for text gradients */
+
 .text-gradient-danger {
   background: var(--gradient-danger);
   -webkit-background-clip: text;
@@ -407,11 +399,11 @@ const totalOutstandingQuantity = computed(() => {
 .section-title {
   display: flex;
   align-items: center;
-  gap: var(--space-sm); /* REFACTORED */
+  gap: var(--space-sm);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: var(--space-md); /* REFACTORED */
+  margin-bottom: var(--space-md);
 }
 
 .title-line-divider {
@@ -423,27 +415,26 @@ const totalOutstandingQuantity = computed(() => {
 /* Actions Section */
 .actions-section {
   margin-bottom: var(--space-xl);
-} /* REFACTORED */
+}
 .actions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-md); /* REFACTORED */
+  gap: var(--space-md);
 }
 
 .action-card {
   position: relative;
-  padding: var(--space-lg); /* REFACTORED */
-  border-radius: var(--border-radius-lg); /* REFACTORED */
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-lg);
   text-decoration: none;
   overflow: hidden;
-  transition: all var(--transition-base); /* REFACTORED */
+  transition: all var(--transition-base);
   animation: slideUp 0.6s ease-out backwards;
   color: white;
   background-size: 100% 100%;
   background-position: center;
 }
 .action-card::before {
-  /* Gradient overlay */
   content: '';
   position: absolute;
   top: 0;
@@ -464,7 +455,7 @@ const totalOutstandingQuantity = computed(() => {
 
 .action-card:hover {
   transform: translateY(-10px);
-  box-shadow: var(--shadow-lg); /* REFACTORED */
+  box-shadow: var(--shadow-lg);
 }
 .action-card:hover::before {
   transform: scale(1.1);
@@ -491,9 +482,9 @@ const totalOutstandingQuantity = computed(() => {
   justify-content: center;
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
-  border-radius: var(--border-radius-lg); /* REFACTORED */
-  margin-bottom: var(--space-md); /* REFACTORED */
-  transition: all var(--transition-base); /* REFACTORED */
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--space-md);
+  transition: all var(--transition-base);
 }
 
 .action-card:hover .action-icon {
@@ -515,14 +506,14 @@ const totalOutstandingQuantity = computed(() => {
 .action-content p {
   font-size: 1rem;
   opacity: 0.9;
-  margin-bottom: var(--space-md); /* REFACTORED */
+  margin-bottom: var(--space-md);
 }
 
 .action-arrow {
   font-size: 2rem;
   font-weight: 700;
   opacity: 0.7;
-  transition: all var(--transition-base); /* REFACTORED */
+  transition: all var(--transition-base);
 }
 
 .action-card:hover .action-arrow {
@@ -530,7 +521,6 @@ const totalOutstandingQuantity = computed(() => {
   transform: translateX(10px);
 }
 
-/* Outstanding Section */
 .outstanding-section {
   animation: slideUp 0.6s ease-out 0.5s backwards;
 }
@@ -553,6 +543,6 @@ const totalOutstandingQuantity = computed(() => {
   .action-card,
   .metric-card {
     padding: var(--space-md);
-  } /* REFACTORED */
+  }
 }
 </style>
