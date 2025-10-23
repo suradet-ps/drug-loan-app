@@ -166,7 +166,7 @@ const totalOutstandingQuantity = computed(() => {
 }
 
 .text-gradient-animated {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   background: linear-gradient(135deg, #6c6fe4 0%, #8d58b7 60%, #6c6fe4 100%);
   background-clip: text;
@@ -260,7 +260,7 @@ const totalOutstandingQuantity = computed(() => {
 }
 
 .metric-value {
-  font-size: 2.6rem;
+  font-size: 2rem;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: var(--space-xs);
