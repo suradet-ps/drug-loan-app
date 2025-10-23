@@ -156,7 +156,6 @@ onMounted(() => {
   align-items: center;
   gap: var(--space-sm);
   padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--glass-border);
 }
 
 .title-icon {

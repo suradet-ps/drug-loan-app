@@ -4,7 +4,6 @@
       <div class="header-content">
         <div class="title-section">
           <h1 class="main-title">
-            <span class="title-line-text">ยินดีต้อนรับ</span>
             <span class="text-gradient-animated">ระบบยืม-คืนยา รพ.สระโบสถ์</span>
           </h1>
           <p class="subtitle">
@@ -136,33 +135,12 @@ const totalOutstandingQuantity = computed(() => {
 
 <style scoped>
 .dashboard-container {
-  animation: fadeIn 0.8s ease-out;
+  padding: var(--space-lg) var(--space-md);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Header Section */
 .dashboard-header {
   margin-bottom: var(--space-xl);
-  animation: slideDown 0.6s ease-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding-bottom: var(--space-md);
 }
 
 .header-content {
@@ -180,108 +158,38 @@ const totalOutstandingQuantity = computed(() => {
 }
 
 .title-line-text {
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--text-secondary);
-  letter-spacing: 2px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .text-gradient-animated {
   font-size: 3rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
+  background: linear-gradient(135deg, #6c6fe4 0%, #8d58b7 60%, #6c6fe4 100%);
   background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
-  animation: gradientShift 3s ease infinite;
-  letter-spacing: -1px;
-}
-
-@keyframes gradientShift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  letter-spacing: -0.02em;
 }
 
 .subtitle {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
   font-weight: 500;
 }
 
 .pulse-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background: var(--neon-green);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--neon-green);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.ai-badge {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm) var(--space-md);
-  background: rgba(102, 126, 234, 0.1);
-  border: 1px solid rgba(102, 126, 234, 0.3);
-  border-radius: var(--border-radius-lg);
-  backdrop-filter: blur(10px);
-}
-
-.ai-icon {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gradient-primary);
-  border-radius: var(--border-radius-md);
-  color: white;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.ai-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.ai-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.ai-text span {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.ai-text strong {
-  font-size: 1rem;
-  color: var(--neon-blue);
-  font-weight: 700;
+  box-shadow: 0 0 6px rgba(92, 191, 123, 0.6);
 }
 
 .metrics-grid {
@@ -292,43 +200,25 @@ const totalOutstandingQuantity = computed(() => {
 }
 
 .metric-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(140, 120, 100, 0.22);
   border-radius: var(--border-radius-lg);
   padding: var(--space-lg);
   box-shadow: var(--glass-shadow);
-  transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
   display: flex;
   align-items: center;
   gap: var(--space-md);
-  animation: slideUp 0.6s ease-out backwards;
-}
-
-.metric-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-.metric-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .metric-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: var(--glass-shadow), var(--shadow-glow);
-  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(140, 120, 100, 0.35);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
 }
 
 .metric-icon {
@@ -339,22 +229,21 @@ const totalOutstandingQuantity = computed(() => {
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-md);
+  color: white;
 }
 
 .metric-card.outstanding .metric-icon {
   background: var(--gradient-danger);
-  color: white;
 }
 
 .metric-card.quantity .metric-icon {
   background: var(--gradient-success);
-  color: white;
 }
 
 .metric-icon svg {
   width: 32px;
   height: 32px;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.2));
 }
 
 .metric-content {
@@ -362,18 +251,18 @@ const totalOutstandingQuantity = computed(() => {
 }
 
 .metric-content h3 {
-  font-size: 0.875rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
   margin-bottom: var(--space-xs);
 }
 
 .metric-value {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: var(--space-xs);
 }
 
@@ -383,6 +272,7 @@ const totalOutstandingQuantity = computed(() => {
   background-clip: text;
   color: transparent;
 }
+
 .text-gradient-success {
   background: var(--gradient-success);
   -webkit-background-clip: text;
@@ -391,16 +281,16 @@ const totalOutstandingQuantity = computed(() => {
 }
 
 .metric-label {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
+  letter-spacing: 0.05em;
 }
 
-/* Section Title */
 .section-title {
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: var(--space-md);
@@ -409,13 +299,13 @@ const totalOutstandingQuantity = computed(() => {
 .title-line-divider {
   flex: 1;
   height: 2px;
-  background: linear-gradient(90deg, rgba(102, 126, 234, 0.5), transparent);
+  background: linear-gradient(90deg, rgba(108, 111, 228, 0.6), transparent);
 }
 
-/* Actions Section */
 .actions-section {
   margin-bottom: var(--space-xl);
 }
+
 .actions-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -428,45 +318,28 @@ const totalOutstandingQuantity = computed(() => {
   border-radius: var(--border-radius-lg);
   text-decoration: none;
   overflow: hidden;
-  transition: all var(--transition-base);
-  animation: slideUp 0.6s ease-out backwards;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    filter var(--transition-base);
   color: white;
   background-size: 100% 100%;
   background-position: center;
-}
-.action-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit;
-  transition: all var(--transition-slow);
-  z-index: 0;
+  min-height: 220px;
 }
 
 .action-card.borrow {
   background-image: var(--gradient-success);
 }
+
 .action-card.return {
   background-image: var(--gradient-primary);
 }
 
 .action-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-lg);
-}
-.action-card:hover::before {
-  transform: scale(1.1);
-  filter: brightness(1.2);
-}
-
-.action-card:nth-child(1) {
-  animation-delay: 0.3s;
-}
-.action-card:nth-child(2) {
-  animation-delay: 0.4s;
+  filter: brightness(1.05);
 }
 
 .action-content {
@@ -480,16 +353,11 @@ const totalOutstandingQuantity = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);
   border-radius: var(--border-radius-lg);
   margin-bottom: var(--space-md);
-  transition: all var(--transition-base);
-}
-
-.action-card:hover .action-icon {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: var(--shadow-md);
+  color: inherit;
 }
 
 .action-icon svg {
@@ -498,48 +366,50 @@ const totalOutstandingQuantity = computed(() => {
 }
 
 .action-content h3 {
-  font-size: 1.75rem;
+  font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
 }
 
 .action-content p {
-  font-size: 1rem;
-  opacity: 0.9;
+  font-size: 1.05rem;
+  opacity: 0.92;
   margin-bottom: var(--space-md);
 }
 
 .action-arrow {
   font-size: 2rem;
   font-weight: 700;
-  opacity: 0.7;
-  transition: all var(--transition-base);
+  opacity: 0.85;
+  transition: transform var(--transition-base);
 }
 
 .action-card:hover .action-arrow {
-  opacity: 1;
-  transform: translateX(10px);
+  transform: translateX(8px);
 }
 
 .outstanding-section {
-  animation: slideUp 0.6s ease-out 0.5s backwards;
+  margin-bottom: var(--space-xl);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
+  .dashboard-container {
+    padding: var(--space-xs) var(--space-xs);
+  }
+
   .header-content {
     flex-direction: column;
   }
+
   .text-gradient-animated {
-    font-size: 2rem;
+    font-size: 2.4rem;
   }
-  .ai-badge {
-    align-self: flex-start;
-  }
+
   .metrics-grid,
   .actions-grid {
     grid-template-columns: 1fr;
   }
+
   .action-card,
   .metric-card {
     padding: var(--space-md);
