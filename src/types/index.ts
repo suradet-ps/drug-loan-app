@@ -13,6 +13,7 @@ export type Transaction = {
   transaction_date: string
   drug_name: string
   quantity: number
+  unit: string
   price_per_unit: number
   transaction_type: TransactionType
   status: TransactionStatus | null
@@ -32,7 +33,15 @@ export type NewLoan = Omit<
 
 export type NewReturn = Omit<
   Transaction,
-  'id' | 'created_at' | 'status' | 'user_id' | 'linked_loan_id'
+  | 'id'
+  | 'created_at'
+  | 'status'
+  | 'user_id'
+  | 'linked_loan_id'
+  | 'unit'
+  | 'drug_name'
+  | 'price_per_unit'
+  | 'partner_hospital_id'
 > & {
   transaction_type: 'RETURN'
   linked_loan_id: string

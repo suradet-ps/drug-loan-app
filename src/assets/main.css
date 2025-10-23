@@ -1,16 +1,17 @@
 :root {
-  --bg-dark: #100f1c;
-  --glass-bg: rgba(44, 42, 63, 0.5);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --primary-accent: #e040fb;
-  --secondary-accent: #00e5ff;
-  --text-primary: #f0f0f0;
-  --text-secondary: #a0a0b0;
+  --bg-light: #f8f9fa;
+  --bg-white: #ffffff;
+  --primary-accent: #27ae60;
+  --primary-accent-hover: #229954;
+  --text-primary: #34495e;
+  --text-secondary: #7f8c8d;
+  --border-color: #e0e0e0;
   --success: #27ae60;
   --warning: #f39c12;
   --danger: #e74c3c;
+  --shadow-color: rgba(0, 0, 0, 0.05);
 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -26,7 +27,7 @@
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-light);
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
@@ -45,18 +46,16 @@ a {
 }
 
 a:hover {
-  color: var(--secondary-accent);
+  color: var(--primary-accent-hover);
 }
 
 .form-card,
 .list-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  background: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .form-group {
@@ -72,27 +71,37 @@ a:hover {
 }
 
 .form-input,
-.form-textarea {
+.form-textarea,
+select.form-input {
   width: 100%;
-  padding: 0.8rem 1rem;
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--glass-border);
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 1rem;
   color: var(--text-primary);
-  transition: all 0.3s;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+}
+
+select.form-input {
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
   color: var(--text-secondary);
+  opacity: 0.8;
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
   border-color: var(--primary-accent);
-  box-shadow: 0 0 0 2px rgba(224, 64, 251, 0.3);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+  background-color: var(--bg-white);
 }
 
 .btn {
@@ -103,18 +112,19 @@ a:hover {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s;
-  background: linear-gradient(90deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+  transition: all 0.2s ease-in-out;
+  background-color: var(--primary-accent);
   color: white;
 }
 
 .btn:hover:not(:disabled) {
+  background-color: var(--primary-accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(224, 64, 251, 0.4);
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.2);
 }
 
 .btn:disabled {
-  background: var(--text-secondary);
+  background-color: var(--text-secondary);
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 0.7;
 }

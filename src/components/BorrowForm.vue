@@ -1,19 +1,19 @@
 <template>
   <div class="borrow-form-container">
     <div class="form-card">
-      <h2 class="form-title">บันทึกยาที่ยืม</h2>
+      <h2 class="form-title">บันทึกข้อมูลยืมยา</h2>
       <form @submit.prevent="submitBorrow" class="borrow-form">
         <div class="form-group">
           <label class="form-label">ชื่อยา</label>
           <input
             v-model="formData.drug_name"
             class="form-input"
-            placeholder="พิมพ์ชื่อยา"
+            placeholder="เช่น Paracetamol 500mg"
             required
           />
         </div>
         <div class="form-group">
-          <label class="form-label">โรงพยาบาล</label>
+          <label class="form-label">ยืมจากโรงพยาบาล</label>
           <select v-model="formData.partner_hospital_id" class="form-input" required>
             <option disabled value="">เลือกโรงพยาบาล</option>
             <option v-for="h in hospitalStore.hospitals" :key="h.id" :value="h.id">
@@ -33,27 +33,37 @@
             />
           </div>
           <div class="form-group">
-            <label class="form-label">ราคา/หน่วย</label>
+            <label class="form-label">หน่วยนับ</label>
             <input
-              v-model.number="formData.price_per_unit"
-              type="number"
-              min="0"
-              step="0.01"
+              v-model="formData.unit"
+              type="text"
               class="form-input"
+              placeholder="เช่น เม็ด, ขวด"
               required
             />
           </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">ราคา/หน่วย</label>
+          <input
+            v-model.number="formData.price_per_unit"
+            type="number"
+            min="0"
+            step="0.01"
+            class="form-input"
+            required
+          />
         </div>
         <div class="form-group">
           <label class="form-label">วันที่ยืม</label>
           <input v-model="formData.transaction_date" type="date" class="form-input" required />
         </div>
         <div class="form-group">
-          <label class="form-label">หมายเหตุ</label>
+          <label class="form-label">หมายเหตุ (ถ้ามี)</label>
           <textarea v-model="formData.notes" class="form-textarea" rows="3"></textarea>
         </div>
         <button type="submit" class="btn" :disabled="transactionStore.loading">
-          {{ transactionStore.loading ? 'กำลังบันทึก...' : 'บันทึก' }}
+          {{ transactionStore.loading ? 'กำลังบันทึก...' : 'บันทึกรายการ' }}
         </button>
       </form>
     </div>
@@ -73,6 +83,7 @@ const createInitialFormData = (): NewLoan => ({
   transaction_date: new Date().toISOString().slice(0, 10),
   drug_name: '',
   quantity: 1,
+  unit: '',
   price_per_unit: 0,
   transaction_type: 'LOAN',
   partner_hospital_id: '',
@@ -102,13 +113,14 @@ const submitBorrow = async () => {
 <style scoped>
 .form-title {
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
   margin-bottom: 2rem;
   color: var(--text-primary);
 }
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 </style>

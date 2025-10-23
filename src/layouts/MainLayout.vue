@@ -1,14 +1,14 @@
 <template>
   <div class="main-layout">
-    <div class="content-wrap">
+    <TheHeader />
+    <main class="content-wrap">
       <router-view />
-    </div>
-    <NavBar />
+    </main>
   </div>
 </template>
 
 <script setup lang="ts">
-import NavBar from '@/components/NavBar.vue'
+import TheHeader from '@/components/TheHeader.vue'
 </script>
 
 <style scoped>
@@ -16,9 +16,10 @@ import NavBar from '@/components/NavBar.vue'
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--bg-light);
 }
 .content-wrap {
   flex-grow: 1;
-  padding: 1rem 1rem 6rem 1rem;
+  padding: 100px 2rem 2rem;
 }
 </style>

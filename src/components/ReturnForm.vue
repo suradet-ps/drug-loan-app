@@ -21,8 +21,8 @@
               :key="loan.id"
               :value="loan.id"
             >
-              {{ loan.drug_name }} - {{ loan.hospital?.name }} (ค้าง
-              {{ getRemaining(loan.id) }} ชิ้น)
+              {{ loan.drug_name }} - {{ loan.hospital?.name }} (ค้าง {{ getRemaining(loan.id) }}
+              {{ loan.unit }})
             </option>
           </select>
         </div>
@@ -87,11 +87,8 @@ const submitReturn = async () => {
 
   const returnData: NewReturn = {
     transaction_date: new Date().toISOString().slice(0, 10),
-    drug_name: '',
     quantity: returnQuantity.value,
-    price_per_unit: 0,
     transaction_type: 'RETURN',
-    partner_hospital_id: '',
     linked_loan_id: selectedLoanId.value,
     notes: '',
   }

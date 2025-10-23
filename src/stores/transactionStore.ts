@@ -47,7 +47,7 @@ export const useTransactionStore = defineStore('transactions', () => {
     const userId = authStore.currentUserId()
     if (!userId) throw new Error('User not logged in')
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('transactions')
       .insert([
         {
@@ -60,7 +60,7 @@ export const useTransactionStore = defineStore('transactions', () => {
       .single()
 
     if (error) throw error
-    await fetchAllTransactions() // Refresh data
+    await fetchAllTransactions()
   }
 
   async function createReturn(returnData: NewReturn) {
@@ -70,51 +70,20 @@ export const useTransactionStore = defineStore('transactions', () => {
     const loan = allTransactions.value.find((t) => t.id === returnData.linked_loan_id)
     if (!loan) throw new Error('Original loan not found')
 
-    returnData.drug_name = loan.drug_name
-    returnData.price_per_unit = loan.price_per_unit
-    returnData.partner_hospital_id = loan.partner_hospital_id
-
-    const { error } = await supabase
-      .from('transactions')
-      .insert([{ ...returnData, user_id: userId }])
-    if (error) throw error
-
-    await updateLoanStatus(returnData.linked_loan_id)
-    await fetchAllTransactions() // Refresh data
-  }
-
-  async function updateLoanStatus(loanId: string) {
-    const { data: loan, error: loanError } = await supabase
-      .from('transactions')
-      .select('quantity')
-      .eq('id', loanId)
-      .single()
-
-    if (loanError) throw loanError
-
-    const { data: returns, error: returnError } = await supabase
-      .from('transactions')
-      .select('quantity')
-      .eq('linked_loan_id', loanId)
-      .eq('transaction_type', 'RETURN')
-
-    if (returnError) throw returnError
-
-    const totalReturned = returns.reduce((sum, r) => sum + r.quantity, 0)
-    let newStatus: 'OUTSTANDING' | 'RETURNED' | 'PARTIALLY_RETURNED' = 'OUTSTANDING'
-
-    if (totalReturned >= loan.quantity) {
-      newStatus = 'RETURNED'
-    } else if (totalReturned > 0) {
-      newStatus = 'PARTIALLY_RETURNED'
+    const fullReturnData = {
+      ...returnData,
+      drug_name: loan.drug_name,
+      price_per_unit: loan.price_per_unit,
+      partner_hospital_id: loan.partner_hospital_id,
+      unit: loan.unit,
+      user_id: userId,
     }
 
-    const { error } = await supabase
-      .from('transactions')
-      .update({ status: newStatus })
-      .eq('id', loanId)
+    const { error } = await supabase.from('transactions').insert([fullReturnData])
 
     if (error) throw error
+
+    await fetchAllTransactions()
   }
 
   return {
