@@ -2,10 +2,28 @@
   <div class="page-container">
     <header class="page-header">
       <div>
-        <h2>บันทึกข้อมูลยืมยา</h2>
-        <p>กรอกรายละเอียดยาที่ต้องการยืม</p>
+        <!-- REFACTORED: Added gradient text for consistency -->
+        <h2 class="text-gradient">บันทึกข้อมูลยืมยา</h2>
+        <p>กรอกรายละเอียดยาที่ต้องการยืมจากโรงพยาบาลพันธมิตร</p>
       </div>
-      <router-link to="/" class="back-btn">&larr; กลับไปหน้า Dashboard</router-link>
+      <!-- REFACTORED: The back button is now styled to match the theme -->
+      <router-link to="/" class="back-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span>Dashboard</span>
+      </router-link>
     </header>
     <BorrowForm />
   </div>
@@ -16,30 +34,82 @@ import BorrowForm from '../components/BorrowForm.vue'
 </script>
 
 <style scoped>
+/* ADDED: Container animation for a smooth entrance */
+.page-container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* REFACTORED: Header style is now consistent with other pages */
 .page-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--glass-border);
 }
+
 .page-header h2 {
   font-size: 2rem;
   font-weight: 700;
+  margin-bottom: var(--space-xs);
 }
+
 .page-header p {
   color: var(--text-secondary);
+  font-size: 1rem;
 }
+
+/* REFACTORED: Complete redesign of the back button to fit the theme */
 .back-btn {
-  background-color: var(--bg-white);
-  border: 1px solid var(--border-color);
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-md);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all var(--transition-base);
 }
+
+.back-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
 .back-btn:hover {
-  background-color: var(--bg-light);
-  color: var(--primary-accent);
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: var(--neon-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Responsive: Hide button text on small screens */
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .back-btn span {
+    display: none;
+  }
+  .back-btn {
+    padding: var(--space-xs);
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="borrow-form-container">
     <div class="form-card">
-      <h2 class="form-title">บันทึกข้อมูลยืมยา</h2>
+      <h2 class="form-title text-gradient">บันทึกข้อมูลยืมยา</h2>
       <form @submit.prevent="submitBorrow" class="borrow-form">
         <div class="form-group">
           <label class="form-label">ชื่อยา</label>
@@ -12,6 +12,7 @@
             required
           />
         </div>
+
         <div class="form-group">
           <label class="form-label">ยืมจากโรงพยาบาล</label>
           <select v-model="formData.partner_hospital_id" class="form-input" required>
@@ -21,6 +22,7 @@
             </option>
           </select>
         </div>
+
         <div class="form-grid">
           <div class="form-group">
             <label class="form-label">จำนวน</label>
@@ -43,6 +45,7 @@
             />
           </div>
         </div>
+
         <div class="form-group">
           <label class="form-label">ราคา/หน่วย</label>
           <input
@@ -54,14 +57,17 @@
             required
           />
         </div>
+
         <div class="form-group">
           <label class="form-label">วันที่ยืม</label>
           <input v-model="formData.transaction_date" type="date" class="form-input" required />
         </div>
+
         <div class="form-group">
           <label class="form-label">หมายเหตุ (ถ้ามี)</label>
           <textarea v-model="formData.notes" class="form-textarea" rows="3"></textarea>
         </div>
+
         <button type="submit" class="btn" :disabled="transactionStore.loading">
           {{ transactionStore.loading ? 'กำลังบันทึก...' : 'บันทึกรายการ' }}
         </button>
@@ -111,16 +117,42 @@ const submitBorrow = async () => {
 </script>
 
 <style scoped>
+.borrow-form-container {
+  max-width: 700px;
+  margin: var(--space-lg) auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .form-title {
   text-align: center;
   font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
   color: var(--text-primary);
 }
+
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  gap: var(--space-md);
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+@media (max-width: 500px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

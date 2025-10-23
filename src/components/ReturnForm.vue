@@ -1,21 +1,35 @@
 <template>
   <div class="return-form-container">
     <div class="form-card">
-      <h2 class="form-title">บันทึกยาที่คืน</h2>
+      <h2 class="form-title text-gradient">บันทึกยาที่คืน</h2>
       <div
         v-if="transactionStore.loading && transactionStore.outstandingLoans.length === 0"
         class="loading"
       >
-        กำลังโหลด...
+        Loading outstanding loans...
       </div>
+
       <div v-else-if="transactionStore.outstandingLoans.length === 0" class="empty-state">
-        ไม่มีรายการให้คืน
+        <div class="empty-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9 11L12 14L22 4"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" opacity="0.3" />
+          </svg>
+        </div>
+        <h3>All Clear!</h3>
+        <p>ไม่มีรายการยาที่ค้างให้คืน</p>
       </div>
-      <div v-else>
+
+      <form v-else @submit.prevent="submitReturn">
         <div class="form-group">
           <label class="form-label">เลือกรายการที่ยืม</label>
           <select v-model="selectedLoanId" @change="updateMaxQuantity" class="form-input" required>
-            <option value="">-- เลือกรายการ --</option>
+            <option disabled value="">-- เลือกรายการ --</option>
             <option
               v-for="loan in transactionStore.outstandingLoans"
               :key="loan.id"
@@ -26,6 +40,7 @@
             </option>
           </select>
         </div>
+
         <div v-if="selectedLoanId" class="form-group">
           <label class="form-label">จำนวนที่คืน (สูงสุด {{ maxReturnQuantity }})</label>
           <input
@@ -37,10 +52,11 @@
             required
           />
         </div>
-        <button @click="submitReturn" :disabled="!isValid" class="btn">
+
+        <button type="submit" :disabled="!isValid" class="btn">
           {{ transactionStore.loading ? 'กำลังบันทึก...' : 'บันทึกการคืน' }}
         </button>
-      </div>
+      </form>
     </div>
   </div>
 </template>
@@ -69,6 +85,9 @@ const getRemaining = (loanId: string): number => {
 const updateMaxQuantity = () => {
   if (selectedLoanId.value) {
     maxReturnQuantity.value = getRemaining(selectedLoanId.value)
+    returnQuantity.value = maxReturnQuantity.value > 0 ? 1 : 0
+  } else {
+    maxReturnQuantity.value = 1
     returnQuantity.value = 1
   }
 }
@@ -98,6 +117,7 @@ const submitReturn = async () => {
     alert('บันทึกการคืนเรียบร้อย')
     selectedLoanId.value = ''
     returnQuantity.value = 1
+    maxReturnQuantity.value = 1
   } catch (e) {
     console.error(e)
     alert('เกิดข้อผิดพลาดในการบันทึก')
@@ -106,16 +126,76 @@ const submitReturn = async () => {
 </script>
 
 <style scoped>
+.return-form-container {
+  max-width: 700px;
+  margin: var(--space-lg) auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .form-title {
   text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
   color: var(--text-primary);
 }
-.loading,
+
+.loading {
+  padding: var(--space-xl);
+  min-height: 150px;
+}
+
 .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
   text-align: center;
+  min-height: 150px;
+}
+
+.empty-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gradient-success);
+  border-radius: var(--border-radius-lg);
+  color: white;
+  margin-bottom: var(--space-md);
+}
+
+.empty-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.empty-state p {
+  font-size: 1rem;
   color: var(--text-secondary);
-  padding: 2rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
 }
 </style>
