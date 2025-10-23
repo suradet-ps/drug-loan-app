@@ -25,7 +25,7 @@ import TheHeader from '@/components/TheHeader.vue'
 
 @media (max-width: 768px) {
   .content-wrap {
-    padding: 80px 1rem 1rem;
+    padding: 50px 0.5rem 0.5rem;
   }
 }
 </style>
