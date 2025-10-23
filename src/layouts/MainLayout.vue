@@ -22,4 +22,10 @@ import TheHeader from '@/components/TheHeader.vue'
   flex-grow: 1;
   padding: 100px 2rem 2rem;
 }
+
+@media (max-width: 768px) {
+  .content-wrap {
+    padding: 80px 1rem 1rem;
+  }
+}
 </style>
