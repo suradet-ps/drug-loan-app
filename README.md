@@ -7,14 +7,14 @@
 <br>
 
 <p>
-  <a href="https://github.com/pharmacist-sabot/drug-loan-app/commits/main">
-    <img src="https://img.shields.io/github/last-commit/pharmacist-sabot/drug-loan-app?style=for-the-badge&color=blue&logo=github" alt="Last Commit">
+  <a href="https://github.com/suradet-ps/drug-loan-app/commits/main">
+    <img src="https://img.shields.io/github/last-commit/suradet-ps/drug-loan-app?style=for-the-badge&color=blue&logo=github" alt="Last Commit">
   </a>
-  <a href="https://github.com/pharmacist-sabot/drug-loan-app">
-    <img src="https://img.shields.io/github/languages/top/pharmacist-sabot/drug-loan-app?style=for-the-badge&color=3178C6&logo=typescript" alt="Top Language">
+  <a href="https://github.com/suradet-ps/drug-loan-app">
+    <img src="https://img.shields.io/github/languages/top/suradet-ps/drug-loan-app?style=for-the-badge&color=3178C6&logo=typescript" alt="Top Language">
   </a>
-  <a href="https://github.com/pharmacist-sabot/drug-loan-app">
-    <img src="https://img.shields.io/github/languages/count/pharmacist-sabot/drug-loan-app?style=for-the-badge&color=informational" alt="Language Count">
+  <a href="https://github.com/suradet-ps/drug-loan-app">
+    <img src="https://img.shields.io/github/languages/count/suradet-ps/drug-loan-app?style=for-the-badge&color=informational" alt="Language Count">
   </a>
 </p>
 
@@ -63,7 +63,7 @@ To get a local copy up and running, follow these simple steps.
 
 1.  **Clone the repository:**
     ```sh
-    git clone https://github.com/pharmacist-sabot/drug-loan-app.git
+    git clone https://github.com/suradet-ps/drug-loan-app.git
     cd drug-loan-app
     ```
 
