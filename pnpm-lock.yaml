@@ -35,10 +35,10 @@ importers:
         version: 22.20.1
       '@vitejs/plugin-vue':
         specifier: ^6.0.1
-        version: 6.0.6(vite@7.1.10(@types/node@22.20.1)(jiti@2.6.1))(vue@3.5.41(typescript@5.9.3))
+        version: 6.0.8(vite@7.1.10(@types/node@22.20.1)(jiti@2.6.1))(vue@3.5.41(typescript@5.9.3))
       '@vitest/eslint-plugin':
         specifier: ^1.3.13
-        version: 1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0))
+        version: 1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0))
       '@vue/eslint-config-prettier':
         specifier: ^10.2.0
         version: 10.2.0(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(prettier@3.6.2)
@@ -65,7 +65,7 @@ importers:
         version: 2.6.1
       jsdom:
         specifier: ^27.0.0
-        version: 27.0.0(postcss@8.5.6)(supports-color@7.2.0)
+        version: 27.0.0(postcss@8.5.25)(supports-color@7.2.0)
       npm-run-all2:
         specifier: ^8.0.4
         version: 8.0.4
@@ -86,7 +86,7 @@ importers:
         version: 8.0.3(supports-color@7.2.0)(vite@7.1.10(@types/node@22.20.1)(jiti@2.6.1))(vue@3.5.41(typescript@5.9.3))
       vitest:
         specifier: ^3.2.4
-        version: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0)
+        version: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0)
       vue-tsc:
         specifier: ^3.1.0
         version: 3.1.1(typescript@5.9.3)
@@ -773,8 +773,8 @@ packages:
     resolution: {integrity: sha512-yscDcAuDtvOfE0c8i8UVP+hjK43VIPpwfMv+73mdkpy12rZWnk5Kl6N6pUneQmaZ3PKTg611zemBHFpMjp9ZnQ==}
     engines: {node: '>=14'}
 
-  '@rolldown/pluginutils@1.0.0-rc.13':
-    resolution: {integrity: sha512-3ngTAv6F/Py35BsYbeeLeecvhMKdsKm4AoOETVhAA+Qc8nrA2I0kF7oa93mE9qnIurngOSpMnQ0x2nQY2FPviA==}
+  '@rolldown/pluginutils@1.0.1':
+    resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
   '@rollup/rollup-android-arm-eabi@4.52.4':
     resolution: {integrity: sha512-BTm2qKNnWIQ5auf4deoetINJm2JzvihvGb9R6K/ETwKLql/Bb3Eg2H1FBp1gUb4YGbydMA3jcmQTR73q7J+GAA==}
@@ -1015,8 +1015,8 @@ packages:
     resolution: {integrity: sha512-ptkmIf2iDkNUjdeu2bQqhFPV1m6qTnFFjg7PPDjxKWaMaP0Z6I9l30Jr3g5QqbZGdw8YdYvLp+XnqnWWZOg/NA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vitejs/plugin-vue@6.0.6':
-    resolution: {integrity: sha512-u9HHgfrq3AjXlysn0eINFnWQOJQLO9WN6VprZ8FXl7A2bYisv3Hui9Ij+7QZ41F/WYWarHjwBbXtD7dKg3uxbg==}
+  '@vitejs/plugin-vue@6.0.8':
+    resolution: {integrity: sha512-0ZjgOg7oO6farnNGup7yvoM/YXZV84OZxHAwtflItNa/6zzQyVb5LNxyea3FEKEX2XlagIKzrlH7wwxkKgtiew==}
     engines: {node: ^20.19.0 || >=22.12.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
@@ -2688,9 +2688,9 @@ snapshots:
     dependencies:
       '@csstools/css-tokenizer': 3.0.4
 
-  '@csstools/css-syntax-patches-for-csstree@1.0.14(postcss@8.5.6)':
+  '@csstools/css-syntax-patches-for-csstree@1.0.14(postcss@8.5.25)':
     dependencies:
-      postcss: 8.5.6
+      postcss: 8.5.25
 
   '@csstools/css-tokenizer@3.0.4': {}
 
@@ -3013,7 +3013,7 @@ snapshots:
     dependencies:
       oxc-parser: 0.139.0
 
-  '@rolldown/pluginutils@1.0.0-rc.13': {}
+  '@rolldown/pluginutils@1.0.1': {}
 
   '@rollup/rollup-android-arm-eabi@4.52.4':
     optional: true
@@ -3235,20 +3235,20 @@ snapshots:
       '@typescript-eslint/types': 8.46.1
       eslint-visitor-keys: 4.2.1
 
-  '@vitejs/plugin-vue@6.0.6(vite@7.1.10(@types/node@22.20.1)(jiti@2.6.1))(vue@3.5.41(typescript@5.9.3))':
+  '@vitejs/plugin-vue@6.0.8(vite@7.1.10(@types/node@22.20.1)(jiti@2.6.1))(vue@3.5.41(typescript@5.9.3))':
     dependencies:
-      '@rolldown/pluginutils': 1.0.0-rc.13
+      '@rolldown/pluginutils': 1.0.1
       vite: 7.1.10(@types/node@22.20.1)(jiti@2.6.1)
       vue: 3.5.41(typescript@5.9.3)
 
-  '@vitest/eslint-plugin@1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0))':
+  '@vitest/eslint-plugin@1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.46.1
       '@typescript-eslint/utils': 8.46.1(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       eslint: 9.38.0(jiti@2.6.1)(supports-color@7.2.0)
     optionalDependencies:
       typescript: 5.9.3
-      vitest: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0)
+      vitest: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -3646,10 +3646,10 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cssstyle@5.3.1(postcss@8.5.6):
+  cssstyle@5.3.1(postcss@8.5.25):
     dependencies:
       '@asamuzakjp/css-color': 4.0.5
-      '@csstools/css-syntax-patches-for-csstree': 1.0.14(postcss@8.5.6)
+      '@csstools/css-syntax-patches-for-csstree': 1.0.14(postcss@8.5.25)
       css-tree: 3.1.0
     transitivePeerDependencies:
       - postcss
@@ -4018,10 +4018,10 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0):
+  jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0):
     dependencies:
       '@asamuzakjp/dom-selector': 6.7.2
-      cssstyle: 5.3.1(postcss@8.5.6)
+      cssstyle: 5.3.1(postcss@8.5.25)
       data-urls: 6.0.0
       decimal.js: 10.6.0
       html-encoding-sniffer: 4.0.0
@@ -4601,7 +4601,7 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.6.1
 
-  vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0):
+  vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       '@types/chai': 5.2.2
       '@vitest/expect': 3.2.4
@@ -4628,7 +4628,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.20.1
-      jsdom: 27.0.0(postcss@8.5.6)(supports-color@7.2.0)
+      jsdom: 27.0.0(postcss@8.5.25)(supports-color@7.2.0)
     transitivePeerDependencies:
       - jiti
       - less
