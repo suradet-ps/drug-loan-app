@@ -38,7 +38,7 @@ importers:
         version: 6.0.6(vite@7.1.10(@types/node@22.20.1)(jiti@2.6.1))(vue@3.5.41(typescript@5.9.3))
       '@vitest/eslint-plugin':
         specifier: ^1.3.13
-        version: 1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0))
+        version: 1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0))
       '@vue/eslint-config-prettier':
         specifier: ^10.2.0
         version: 10.2.0(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(prettier@3.6.2)
@@ -49,8 +49,8 @@ importers:
         specifier: ^2.4.6
         version: 2.4.6
       '@vue/tsconfig':
-        specifier: ^0.8.1
-        version: 0.8.1(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3))
+        specifier: ^0.9.0
+        version: 0.9.1(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3))
       eslint:
         specifier: ^9.33.0
         version: 9.38.0(jiti@2.6.1)(supports-color@7.2.0)
@@ -65,7 +65,7 @@ importers:
         version: 2.6.1
       jsdom:
         specifier: ^27.0.0
-        version: 27.0.0(postcss@8.5.6)(supports-color@7.2.0)
+        version: 27.0.0(postcss@8.5.25)(supports-color@7.2.0)
       npm-run-all2:
         specifier: ^8.0.4
         version: 8.0.4
@@ -86,7 +86,7 @@ importers:
         version: 8.0.3(supports-color@7.2.0)(vite@7.1.10(@types/node@22.20.1)(jiti@2.6.1))(vue@3.5.41(typescript@5.9.3))
       vitest:
         specifier: ^3.2.4
-        version: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0)
+        version: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0)
       vue-tsc:
         specifier: ^3.1.0
         version: 3.1.1(typescript@5.9.3)
@@ -1187,10 +1187,10 @@ packages:
   '@vue/test-utils@2.4.6':
     resolution: {integrity: sha512-FMxEjOpYNYiFe0GkaHsnJPXFHxQ6m4t8vI/ElPGpMWxZKpmRvQ33OIrvRXemy6yha03RxhOlQuy+gZMC3CQSow==}
 
-  '@vue/tsconfig@0.8.1':
-    resolution: {integrity: sha512-aK7feIWPXFSUhsCP9PFqPyFOcz4ENkb8hZ2pneL6m2UjCkccvaOhC/5KCKluuBufvp2KzkbdA2W2pk20vLzu3g==}
+  '@vue/tsconfig@0.9.1':
+    resolution: {integrity: sha512-buvjm+9NzLCJL29KY1j1991YYJ5e6275OiK+G4jtmfIb+z4POywbdm0wXusT9adVWqe0xqg70TbI7+mRx4uU9w==}
     peerDependencies:
-      typescript: 5.x
+      typescript: '>= 5.8'
       vue: ^3.4.0
     peerDependenciesMeta:
       typescript:
@@ -2688,9 +2688,9 @@ snapshots:
     dependencies:
       '@csstools/css-tokenizer': 3.0.4
 
-  '@csstools/css-syntax-patches-for-csstree@1.0.14(postcss@8.5.6)':
+  '@csstools/css-syntax-patches-for-csstree@1.0.14(postcss@8.5.25)':
     dependencies:
-      postcss: 8.5.6
+      postcss: 8.5.25
 
   '@csstools/css-tokenizer@3.0.4': {}
 
@@ -3241,14 +3241,14 @@ snapshots:
       vite: 7.1.10(@types/node@22.20.1)(jiti@2.6.1)
       vue: 3.5.41(typescript@5.9.3)
 
-  '@vitest/eslint-plugin@1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0))':
+  '@vitest/eslint-plugin@1.3.23(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)(vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0))':
     dependencies:
       '@typescript-eslint/scope-manager': 8.46.1
       '@typescript-eslint/utils': 8.46.1(eslint@9.38.0(jiti@2.6.1)(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3)
       eslint: 9.38.0(jiti@2.6.1)(supports-color@7.2.0)
     optionalDependencies:
       typescript: 5.9.3
-      vitest: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0)
+      vitest: 3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -3508,7 +3508,7 @@ snapshots:
       js-beautify: 1.15.4
       vue-component-type-helpers: 2.2.12
 
-  '@vue/tsconfig@0.8.1(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3))':
+  '@vue/tsconfig@0.9.1(typescript@5.9.3)(vue@3.5.41(typescript@5.9.3))':
     optionalDependencies:
       typescript: 5.9.3
       vue: 3.5.41(typescript@5.9.3)
@@ -3646,10 +3646,10 @@ snapshots:
 
   cssesc@3.0.0: {}
 
-  cssstyle@5.3.1(postcss@8.5.6):
+  cssstyle@5.3.1(postcss@8.5.25):
     dependencies:
       '@asamuzakjp/css-color': 4.0.5
-      '@csstools/css-syntax-patches-for-csstree': 1.0.14(postcss@8.5.6)
+      '@csstools/css-syntax-patches-for-csstree': 1.0.14(postcss@8.5.25)
       css-tree: 3.1.0
     transitivePeerDependencies:
       - postcss
@@ -4018,10 +4018,10 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0):
+  jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0):
     dependencies:
       '@asamuzakjp/dom-selector': 6.7.2
-      cssstyle: 5.3.1(postcss@8.5.6)
+      cssstyle: 5.3.1(postcss@8.5.25)
       data-urls: 6.0.0
       decimal.js: 10.6.0
       html-encoding-sniffer: 4.0.0
@@ -4601,7 +4601,7 @@ snapshots:
       fsevents: 2.3.3
       jiti: 2.6.1
 
-  vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6)(supports-color@7.2.0))(supports-color@7.2.0):
+  vitest@3.2.4(@types/node@22.20.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.25)(supports-color@7.2.0))(supports-color@7.2.0):
     dependencies:
       '@types/chai': 5.2.2
       '@vitest/expect': 3.2.4
@@ -4628,7 +4628,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 22.20.1
-      jsdom: 27.0.0(postcss@8.5.6)(supports-color@7.2.0)
+      jsdom: 27.0.0(postcss@8.5.25)(supports-color@7.2.0)
     transitivePeerDependencies:
       - jiti
       - less
