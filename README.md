@@ -1,13 +1,11 @@
 # Drug Loan Management System
 
-```
-██████╗ ██████╗ ██╗   ██╗ ██████╗██╗      ██████╗  █████╗ ███╗   ██╗
-██╔══██╗██╔══██╗██║   ██║██╔════╝██║     ██╔═══██╗██╔══██╗████╗  ██║
-██║  ██║██████╔╝██║   ██║██║  ███╗██║     ██║   ██║███████║██╔██╗ ██║
-██║  ██║██╔══██╗██║   ██║██║   ██║██║     ██║   ██║██╔══██║██║╚██╗██║
-██████╔╝██║  ██║╚██████╔╝╚██████╔╝███████╗╚██████╔╝██║  ██║██║ ╚████║
-╚═════╝ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝
-```
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Vue v3](https://img.shields.io/badge/Vue-v3-4FC08D.svg?logo=vuedotjs&logoColor=white)](https://vuejs.org/)
+[![TypeScript v5](https://img.shields.io/badge/TypeScript-v5-3178C6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite v7](https://img.shields.io/badge/Vite-v7-646CFF.svg?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Supabase v2](https://img.shields.io/badge/Supabase-v2-3FCF8E.svg?logo=supabase&logoColor=white)](https://supabase.com/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/suradet-ps/drug-loan-app/issues)
 
 ---
 
